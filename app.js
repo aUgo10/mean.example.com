@@ -10,11 +10,16 @@ var apiUsersRouter = require('./routes/api/users');
 
 var app = express();
 var config = require('./config.dev');
-
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var passport = require('passport');
 //Test the file
 // console.log(config);
 
 var mongoose = require('mongoose');
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
