@@ -13,6 +13,8 @@ var Users = require('./models/users');
 
 var config = require('./config.dev');
 var session = require('express-session');
+var apiAuthRouter = require('./routes/api/auth');
+
 var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 //Test the file
@@ -69,7 +71,7 @@ passport.deserializeUser(function(user, done){
   done(null, user);
 });
 
-
+app.use('/api/auth', apiAuthRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/users', apiUsersRouter);
