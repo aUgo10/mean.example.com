@@ -9,6 +9,14 @@ var scss = require('gulp-sass');
 
 gulp.task('build-main-css', function(){
 
+
+ //~line 13
+//Compile all JS tasks
+gulp.task('build-js', [
+  'build-main-js',
+  'build-auth-js',
+  'build-users-js'
+]);
   var main = gulp.src([
     'src/scss/main.scss',
     'src/scss/forms.scss'
